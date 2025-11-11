@@ -12,9 +12,9 @@ const Header: React.FC<HeaderProps> = ({ onOpenCV }) => {
         <div className="brand-sub">Full Stack Developer</div>
       </div>
       <nav className="nav">
+        <a href="#about">Sobre mí</a>
         <a href="#projects">Proyectos</a>
         <a href="#tools">Herramientas</a>
-        <a href="#about">Sobre mí</a>
         <button className="cv-btn" onClick={onOpenCV} aria-label="Ver CV">CV</button>
       </nav>
     </header>

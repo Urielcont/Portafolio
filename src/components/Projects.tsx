@@ -1,16 +1,19 @@
 import React from 'react'
+import img1 from '../assets/Aquaclyva-Proyecto1.png'
+import img2 from '../assets/El-Profe-proyecto2.png'
 
 type Project = {
   id: string
   title: string
   desc: string
   tags: string[]
+  img?: string
 }
 
 const sampleProjects: Project[] = [
-  { id: 'p1', title: 'Dashboard Neon', desc: 'UI admin con gráficas en tiempo real.', tags: ['React', 'TypeScript'] },
-  { id: 'p2', title: 'Tienda Minimal', desc: 'E-commerce con animaciones suaves y microinteracciones.', tags: ['Vite', 'CSS'] },
-  { id: 'p3', title: 'Juego WebGL', desc: 'Experiencia 3D pequeña para demo de habilidades gráficas.', tags: ['Three.js'] },
+  { id: 'p1', title: 'Aquaclyva', desc: 'Plataforma de gestión acuícola con panel de control en tiempo real.', tags: ['React', 'JSX', 'Node.js', 'MongoDB', 'Express'], img: img1 },
+  { id: 'p2', title: 'El Profe', desc: 'Plataforma educativa con seguimiento de estudiantes.', tags: ['PHP', 'HTML5', 'CSS3', 'JS', 'MySQL'], img: img2 },
+//   { id: 'p3', title: 'Demo WebGL', desc: 'Experiencia 3D pequeña para demo de habilidades gráficas.', tags: ['Three.js'] },
 ]
 
 const Projects: React.FC = () => {
@@ -20,7 +23,9 @@ const Projects: React.FC = () => {
       <div className="projects-grid">
         {sampleProjects.map(p => (
           <article key={p.id} className="project-card">
-            <div className="card-visual" />
+            <div className="card-visual">
+              {p.img ? <img src={p.img} alt={p.title} className="project-thumb" /> : null}
+            </div>
             <div className="card-body">
               <h3>{p.title}</h3>
               <p>{p.desc}</p>

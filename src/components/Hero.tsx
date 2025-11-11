@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       <div className="hero-visual" aria-hidden>
-        <div className="floating-code">{`{ console.log('neon vibes') }`}</div>
+        <div className="floating-code">{`{ console.log('Welcome ...') }`}</div>
       </div>
     </section>
   )

@@ -1,14 +1,22 @@
 import React from 'react'
+import reactIcon from '../assets/react.svg'
+import tsIcon from '../assets/icons-typescript.png'
+import nodeIcon from '../assets/icons-nodejs.png'
+import expressIcon from '../assets/icons-express.png'
+import pgIcon from '../assets/icons-postgreSql.png'
+import cssIcon from '../assets/css.png'
+import dockerIcon from '../assets/icons-javascript.png'
+import tailwindIcon from '../assets/icons-tailwind.png'
 
 const tools = [
-  { id: 't1', name: 'React', desc: 'UI library', color: '#61dafb' },
-  { id: 't2', name: 'TypeScript', desc: 'Typed JS', color: '#3178c6' },
-  { id: 't3', name: 'Node.js', desc: 'Backend', color: '#68a063' },
-  { id: 't4', name: 'Express', desc: 'API', color: '#000000' },
-  { id: 't5', name: 'PostgreSQL', desc: 'DB', color: '#336791' },
-  { id: 't6', name: 'Vite', desc: 'Build tool', color: '#646cff' },
-  { id: 't7', name: 'Docker', desc: 'Containers', color: '#2496ed' },
-  { id: 't8', name: 'Tailwind / CSS', desc: 'Styling', color: '#38b2ac' },
+  { id: 't1', name: 'React', desc: 'UI library', icon: reactIcon },
+  { id: 't2', name: 'TypeScript', desc: 'Typed JS', icon: tsIcon },
+  { id: 't3', name: 'Node.js', desc: 'Backend', icon: nodeIcon },
+  { id: 't4', name: 'Express', desc: 'API', icon: expressIcon },
+  { id: 't5', name: 'PostgreSQL', desc: 'DB', icon: pgIcon },
+  { id: 't6', name: 'CSS', desc: 'Styling', icon: cssIcon },
+  { id: 't7', name: 'JavaScript', desc: 'Language', icon: dockerIcon },
+  { id: 't8', name: 'Tailwind', desc: 'Styling', icon: tailwindIcon },
 ]
 
 const Tools: React.FC = () => {
@@ -19,10 +27,13 @@ const Tools: React.FC = () => {
       <div className="photo-grid">
         {tools.map(t => (
           <figure key={t.id} className="photo-card" title={`${t.name} — ${t.desc}`}>
-            <div className="photo-thumb" style={{ background: `linear-gradient(135deg, ${t.color}22, rgba(255,255,255,0.02))` }}>
-              <div className="camera-emoji">{t.name[0]}</div>
+            <div className="photo-thumb">
+              <img src={t.icon} alt={t.name} className="tool-icon" />
             </div>
-            <figcaption>{t.name}<div className="muted" style={{fontSize:'0.75rem'}}>{t.desc}</div></figcaption>
+            <figcaption>
+              <div className="tool-name">{t.name}</div>
+              <div className="muted" style={{fontSize:'0.75rem'}}>{t.desc}</div>
+            </figcaption>
           </figure>
         ))}
       </div>

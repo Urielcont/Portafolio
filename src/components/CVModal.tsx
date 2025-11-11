@@ -8,6 +8,9 @@ type Props = {
 const CVModal: React.FC<Props> = ({ open, onClose }) => {
   if (!open) return null
 
+  // The PDF was placed in public/ as "Uriel contreras.pdf" — serve with encoded spaces
+  const cvPath = '/Uriel%20contreras.pdf'
+
   return (
     <div className="cv-modal-overlay" role="dialog" aria-modal="true">
       <div className="cv-modal">
@@ -16,10 +19,10 @@ const CVModal: React.FC<Props> = ({ open, onClose }) => {
           <button className="cv-modal-close" onClick={onClose} aria-label="Cerrar CV">✕</button>
         </header>
         <div className="cv-modal-body">
-          {/* If you add a PDF to public/CV.pdf it will show here */}
-          <iframe src="/CV.pdf" title="CV" />
+          {/* PDF placed in public/ will be loaded here */}
+          <iframe src={cvPath} title="CV" />
           <div className="cv-modal-actions">
-            <a href="/CV.pdf" download className="btn primary">Descargar CV</a>
+            <a href={cvPath} download className="btn primary">Descargar CV</a>
             <button className="btn ghost" onClick={onClose}>Cerrar</button>
           </div>
         </div>
